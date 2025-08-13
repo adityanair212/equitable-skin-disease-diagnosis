@@ -11,6 +11,13 @@ The project also includes a **user-friendly Flask web application**, allowing us
 
 ---
 
+## Example: Model Interpretability with Grad-CAM
+Below is an example Grad-CAM visualization highlighting important regions for a skin lesion prediction:
+
+![Grad-CAM Example](images/gradcam_example.png)
+
+---
+
 ## Addressing Algorithmic Bias in Dermatology
 A significant challenge in medical AI is **algorithmic bias**, where models trained on unrepresentative data perform poorly on minority populations. In dermatology, datasets are often heavily skewed toward lighter skin tones, leading to AI systems that are less accurate for individuals with darker skin — exacerbating existing health disparities.
 
@@ -54,6 +61,7 @@ skin-lesion-project/
 │   ├── evaluation.py
 │   └── visualization.py
 │
+├── images/           # Images for README (Grad-CAM example, UI screenshot)
 ├── .gitignore        # Git ignore rules
 ├── README.md         # Project documentation
 └── requirements.txt  # Python dependencies
@@ -117,6 +125,13 @@ python app/app.py
 ```
 Open your browser and go to:  
 [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+---
+
+## Web Application Preview
+Here’s a screenshot of the web interface for uploading and diagnosing skin lesion images:
+
+![Web App Screenshot](images/webapp_screenshot.png)
 
 ---
 
