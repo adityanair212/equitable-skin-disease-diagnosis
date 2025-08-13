@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skin Disease Classifier</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <h1>🩺 Skin Disease Classifier</h1>
+      <label class="toggle-switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <p class="intro-text">
+      Upload a skin lesion image to receive an AI-based prediction of one of five skin conditions. This tool provides awareness and support but is not a substitute for medical advice.
+    </p>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" id="fileInput" name="file" accept="image/*" hidden />
+      <label for="fileInput" class="file-label">Choose Image</label>
+      <button type="submit" class="submit-btn">Predict</button>
+    </form>
+
+    <div id="previewContainer" class="hidden">
+      <h3>Image Preview</h3>
+      <img id="previewImage" src="#" alt="Preview" />
+    </div>
+
+    <div id="spinner" class="spinner hidden"></div>
+
+    <div id="result" class="hidden">
+      <h2 id="predictionText"></h2>
+      <p id="confidenceText"></p>
+      <canvas id="chart" width="400" height="200"></canvas>
+      <img id="gradcamImage" class="hidden" />
+    </div>
+
+    <h3>Prediction History</h3>
+    <ul id="historyList"></ul>
+
+    <div class="tips">
+      <h3>📸 Image Upload Tips</h3>
+      <ul>
+        <li>Good lighting (no shadows)</li>
+        <li>Focus directly on the lesion</li>
+        <li>Upload JPG or PNG format</li>
+        <li>No personal data in image</li>
+      </ul>
+    </div>
+
+    <div class="disease-info">
+      <h3>🩺 Diseases We Detect</h3>
+      <div class="disease-cards">
+        <div class="card"><h4>🧴 Basal Cell Carcinoma</h4><p>Common skin cancer with waxy bumps or open sores.</p></div>
+        <div class="card"><h4>🌾 Eczema</h4><p>Itchy, red, and dry patches from skin inflammation.</p></div>
+        <div class="card"><h4>🟤 Melanocytic Nevi</h4><p>Typically benign moles with uniform color and shape.</p></div>
+        <div class="card"><h4>🧼 Seborrheic Keratosis</h4><p>Noncancerous growths that appear waxy or scaly.</p></div>
+        <div class="card"><h4>🧽 Verruca Vulgaris</h4><p>Common warts caused by HPV, usually rough and raised.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <button id="backToTopBtn" title="Go to top">⬆</button>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script>
+    document.getElementById('themeToggle').addEventListener('change', () => {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === 'light' ? 'dark' : 'light';
+    });
+  </script>
+</body>
+</html>

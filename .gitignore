@@ -1,0 +1,22 @@
+# Python cache & virtual environments
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Data, Models, and large output files
+data/
+models/
+outputs/
+*.pth
+*.npy
+*.zip
+*.csv
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
